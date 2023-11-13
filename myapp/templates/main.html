@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if messages %}
+
+    {% for message in messages %}
+
+    <div class="alert alert-warning  alert-dismissible fade show" role="alert">
+        <strong> {{ message }}</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+    {% endfor %}
+
+
+
+
+
+
+{% endif %}
+
+
+<!-- <div class="btn-group">
+    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      KAAND
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Baal Kaand</a>
+      <a class="dropdown-item" href="#">Ayodhya Kaand</a>
+      <a class="dropdown-item" href="#">Aranya Kaand</a>
+      <a class="dropdown-item" href="#">Kishkindha Kaand</a>
+      <a class="dropdown-item" href="#">Sundara Kaand</a>
+      <a class="dropdown-item" href="#">Lanka Kaand</a>
+      <a class="dropdown-item" href="#">Uttara Kaand</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </div> -->
+
+  <form method="post" action="{% url 'page' %}" id="kand">
+    {% csrf_token %}
+
+    
+    <select name="Kaand" id="tmima" >
+      <option value="0" selected="selection">Select</option>
+      <option value="1">Baal Kanda - Chapter 361</option>
+      <option value="2">Ayodhya Kanda - Chapter 326</option>
+      <option value="3">Aranya Kanda - Chapter 45</option>
+      <option value="4">Kishkindha Kanda - Chapter 30</option>
+      <option value="5">Sundara Kanda - Chapter 60</option>
+      <option value="6">Lanka Kanda - Chapter 121</option>
+      <option value="7">Uttara Kanda - Chapter 130</option>
+    </select>
+
+    <input type="number" name="chapter" id="chapter" min="1" max="400" placeholder="chapter">
+    <input type="submit" value="Search">
+  </form>
+
+{% endblock content %}

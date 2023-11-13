@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="post" action="{% url 'page' %}" id="kand">
+    {% csrf_token %}
+
+    Choose Kaand:<br>
+    
+    <select name="Kaand" id="tmima" >
+        <option value="0" selected="selection">Select</option>
+        <option value="1">Baal Kanda - Chapter 361</option>
+        <option value="2">Ayodhya Kanda - Chapter 326</option>
+        <option value="3">Aranya Kanda - Chapter 45</option>
+        <option value="4">Kishkindha Kanda - Chapter 30</option>
+        <option value="5">Sundara Kanda - Chapter 60</option>
+        <option value="6">Lanka Kanda - Chapter 121</option>
+        <option value="7">Uttara Kanda - Chapter 130</option>
+      </select>
+
+    <input type="number" name="chapter" id="chapter" min="1" max="400" required placeholder="chapter" >
+    <input type="submit" value="Search">
+  </form>
+
+  <hr>
+  
+  <style>
+    .slok{
+        color: orangered;
+        font-size: large;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 2px;
+    }
+
+    .headingSub{
+        font-size: x-large;
+        text-align: center;
+        margin-bottom: 2px;
+    }
+
+    .main_heading2{
+        font-size: x-large;
+        text-align: center;
+        margin-bottom: 2px;
+    }
+
+    .bhawarth{
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        font-size: larger;
+    }
+
+    .arth_pad{
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        font-size: larger;
+    }
+
+    button{
+        /* display: flex; */
+        /* float:inline-start; */
+        background-color: lightslategray;
+        padding: 12px 20px;
+        color: white;
+        border-radius: 7px;
+
+    }
+  </style>
+
+  <div class="container">
+    <div class="dabba">
+        {{ context_data|safe }}
+      </div>
+      
+  </div>
+
+  <br>
+
+  <script>
+    // alert({{ chapter }})
+  </script>
+  
+
+{% endblock content %}
